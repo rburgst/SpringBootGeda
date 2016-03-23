@@ -40,7 +40,7 @@ class UserController {
     @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        userAssembler = DTOAssembler.newAssembler(UserDTO.class, UserEntity.class);
+        userAssembler = DTOAssembler.newAssembler(UserDTO.class, UserEntity.class, UserEntity.class.getClassLoader());
     }
 
     @RequestMapping(path = "/user", produces = "application/json", method = RequestMethod.GET)
